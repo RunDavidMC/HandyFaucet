@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static',filename='base.css') }}?{{ time }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap" rel="stylesheet">
+        {% if title %}
+        <title>{{ title }} | {{ name }}</title>
+        {% else %}
+        <title>{{ name }}</title>
+        {% endif %}
+        {% block head %}{% endblock %}
+    </head>
+
+    <body>
+      <nav>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+        </ul> 
+      </nav>
+
+      <main>
+      {% block main %}{% endblock %}
+      </main>
+
+        <footer>
+          <p>The IoniByte Corporation</p>
+          <p>Early Alpha</p>
+          {% block footer %}{% endblock %}
+        </footer>
+    </body>
+</html>
