@@ -8,24 +8,14 @@ def update(v, repo, res, pref):
     print("Found a new version: " + res.json()["tag_name"] + ".\nYou are currently on " + v + ".")
     print("Changelog: " + res.json()["body"])
 
-    conf = None
-
-    def check():
-        time.sleep(10)
-        if conf != None:
-            return
-        print("Falling back to default option (" + pref + ")...")
-        conf = pref
-
-    Thread(target = check).start()
-
-    conf = input("Do you want to update to this version (if you do not answer in 10 seconds, the updater will fall back on your default option)? [y/n] ")
+    conf = input("Do you want to update to this version? [y/n] ")
 
     if conf[0].lower() == "y":
         print("Updating...")
-        repo.git.pull()
-        print("Update complete. Restarting...")
-        os.execv(sys.argv[0], sys.argv)
+        g = git.cmd.Git("")
+        g.fetch()
+        print("Update complete. Please restart.")
+        exit()
     else:
         print("Aborting...")
         return
