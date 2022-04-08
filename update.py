@@ -12,8 +12,11 @@ def update(v, res):
 
     if conf[0].lower() == "y":
         print("Updating...")
-        g = git.cmd.Git("")
-        g.pull()
+        g = git.cmd.Git(".")
+        g.fetch()
+        g.stash("save")
+        g.merge()
+        g.stash("apply")
         print("Update complete. Please restart.")
         exit()
     else:
