@@ -4,10 +4,24 @@ import sqlite3
 import requests
 import json
 import time
+import sys
+import os
 
 import db
+import update
 
 from config import options, info, encryption, webserver, admin, webhooks
+
+### DO NOT CHANGE ###
+
+v = "v0.0.1"
+repo = "idorecall/selection-menu"
+
+### DO NOT CHANGE ###
+
+upd = update.check(repo, v, options.auto_update)
+if upd == True:
+    os.execl(sys.argv[0], *sys.argv)
 
 ### DECLARE VARIABLES ###
 
