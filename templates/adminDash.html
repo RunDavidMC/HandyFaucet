@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1>{{ faucet_name }}</h1>
+       
+<div id="maindiv">
+    <h2>Admin Panel</h2>
+    
+    <form method="POST">
+        <label for="names">Enter names to load into faucet, each on its own line:</label>
+        <textarea id="names" name="names" rows="8" cols="50" required></textarea>
+        <br>
+        <label for="pin">Enter PIN to confirm identity:</label>
+        <br>
+        <input type="password" class="pin textentry" name="pin" maxlength="4" minlength="4" required></input>
+        <br>
+        <p class="error">WARNING: Depending on how many names you have in your Namebase account, the process of checking may take up to 30 seconds.</p>
+        <input type="submit" class="button" value="Submit"></input>
+        {% if success %}
+        <p class="success">{{ success }}</p>
+        <br>
+        {% endif %}
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        <br>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

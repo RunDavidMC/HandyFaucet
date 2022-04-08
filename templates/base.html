@@ -6,20 +6,21 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% if title %}
-        <title>{{ title }} | {{ name }}</title>
+        <title>{{ title }} | {{ faucet_name }}</title>
         {% else %}
-        <title>{{ name }}</title>
+        <title>{{ faucet_name }}</title>
         {% endif %}
         {% block head %}{% endblock %}
     </head>
 
     <body>
-      <nav>
+      <!--<nav>
         <ul>
             <li><a href="/dashboard">Dashboard</a></li>
         </ul> 
-      </nav>
+      </nav>-->
 
       <main>
       {% block main %}{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}  
+<h1>Thank you for using {{ faucet_name }}!</h1>
+
+<div id="maindiv">
+    <h2>{{ name }} has successfully been sent to {{ email }}, check your email to receive it.</h2>
+    
+    {% if key %}
+    <br>
+    {% endif %}
+
+    {% for key, value in connections.items() %}
+    <p><b>{{ key }}:</b> <a href="{{ value }}">{{ value }}</a></p>
+    {% endfor %}
+    <br>
+</div>
+{% endblock %}
