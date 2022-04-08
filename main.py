@@ -8,14 +8,18 @@ import sys
 import os
 
 import db
+import update
 
 from config import options, info, encryption, webserver, admin, webhooks
 
 ### DO NOT CHANGE ###
 
-v = "v0.0.2"
+v = "v0.0.3"
+repo = "RunDavidMC/HandyFaucet"
 
 ### DO NOT CHANGE ###
+
+upd = update.check(repo, v, options.auto_update)
 
 ### DECLARE VARIABLES ###
 
