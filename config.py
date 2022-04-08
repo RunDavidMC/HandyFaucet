@@ -6,6 +6,7 @@ class options:
     # This may lead to issues if you don't restart the program frequently and you try to load domains into that faucet that
     # came into your Namebase account before the last time you restarted the program. However, it will make loading names
     # much faster, and is reccomended if you have over 1-2k names.
+    test = False
 
 class encryption:
     # CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS
