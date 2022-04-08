@@ -4,7 +4,7 @@ import os, sys
 import time
 from threading import Thread
 
-def update(v, repo, res, pref):
+def update(v, res):
     print("Found a new version: " + res.json()["tag_name"] + ".\nYou are currently on " + v + ".")
     print("Changelog: " + res.json()["body"])
 
@@ -13,7 +13,7 @@ def update(v, repo, res, pref):
     if conf[0].lower() == "y":
         print("Updating...")
         g = git.cmd.Git("")
-        g.fetch()
+        g.pull()
         print("Update complete. Please restart.")
         exit()
     else:
@@ -21,7 +21,7 @@ def update(v, repo, res, pref):
         return
 
 
-def check(repo, v, pref):
+def check(repo, v):
     res = requests.get("https://api.github.com/repos/" + repo + "/releases/latest")
 
     try:
@@ -40,11 +40,11 @@ def check(repo, v, pref):
         v = v.split(".")
 
         if info[0] > v[0]:
-            update(vr, repo, res, pref)
+            update(vr, res)
         elif info[1] > v[1] and info[0] == v[0]:
-            update(vr, repo, res, pref)
+            update(vr, res)
         elif info[2] > v[2] and info[0] == v[0] and info[1] == v[1]:
-            update(vr, repo, res, pref)
+            update(vr, res)
         else:
             print("You are up to date.")
             return

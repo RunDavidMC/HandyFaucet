@@ -19,7 +19,7 @@ repo = "RunDavidMC/HandyFaucet"
 
 ### DO NOT CHANGE ###
 
-upd = update.check(repo, v, options.auto_update)
+upd = update.check(repo, v)
 
 ### DECLARE VARIABLES ###
 
