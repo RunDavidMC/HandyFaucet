@@ -14,7 +14,7 @@ from config import options, info, encryption, webserver, admin, webhooks
 
 ### DO NOT CHANGE ###
 
-v = "v0.0.9"
+v = "v0.0.10"
 repo = "RunDavidMC/HandyFaucet"
 
 ### DO NOT CHANGE ###

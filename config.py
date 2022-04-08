@@ -2,12 +2,13 @@ class options:
     send_anonymous_usage_stats = True
     webhooks = False # If set to true, configure in the webhooks class.
     auto_update = True # If set to true, the faucet will automatically update itself when a new version is released.
-    lazy_load_domains = True # If set to true, the faucet will load domains from Namebase when the program starts.
+    lazy_load_domains = False # If set to true, the faucet will load domains from Namebase when the program starts.
     # This may lead to issues if you don't restart the program frequently and you try to load domains into that faucet that
     # came into your Namebase account before the last time you restarted the program. However, it will make loading names
     # much faster, and is reccomended if you have over 1-2k names.
     test = False
     test2 = True
+    test3 = False
 
 class encryption:
     # CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS
@@ -16,7 +17,7 @@ class encryption:
     # CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS
 
 class info:
-    nb_cookie = "s%3A0000000000000000000000000000000000000000000000000000000000"
+    nb_cookie = "s%3A0000000000000000000000000000000000f000000000000000000000000"
     # To get your Namebase cookie, go to your Namebase dashboard, go into developer mode, 
     # click application, then double click the value for "namebase-main".
     faucet_name = "HandyFaucet" # Name of the faucet.
