@@ -46,7 +46,7 @@ class webhooks: # Make sure to enable in the options class.
 
     notify_server_start = False # If set to true, the webhook will be triggered when the server starts.
     notify_server_start_message = "@RunDavidMC The server has started."
-    notify_server_start_url = default_url
+    server_start_url = default_url
 
     notify_admin_login = False # It is highly recommended you configure this and set it to true to get notified when an admin logs in.
     admin_login_message = "@RunDavidMC An admin has logged in."
@@ -59,3 +59,7 @@ class webhooks: # Make sure to enable in the options class.
     notify_name_send_error = False # If set to true, the faucet will notify you when a name could not be sent, along with the error.
     name_send_error_message = "@RunDavidMC There was an error sending a name." # After the message, it will also send " | ERROR: {error}"
     name_send_error_url = default_url
+
+    notify_faucet_use = False # If set to true, the faucet will notify you when a name is claimed.
+    faucet_use_message = "@RunDavidMC A name was claimed!" # After the message, it will also send " | Name: {name}"
+    faucet_use_url = default_url
