@@ -7,6 +7,7 @@ class options:
     # came into your Namebase account before the last time you restarted the program. However, it will make loading names
     # much faster, and is reccomended if you have over 1-2k names.
     test = False
+    test2 = True
 
 class encryption:
     # CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS CHANGE THIS
