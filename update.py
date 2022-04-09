@@ -16,7 +16,6 @@ def update(v, res):
         g.fetch()
         g.stash("save")
         g.merge()
-        g.stash("apply")
         print("Update complete. Please restart.")
         exit()
     else:

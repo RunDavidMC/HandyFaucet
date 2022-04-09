@@ -6,6 +6,8 @@ import json
 import time
 import sys
 import os
+import uuid
+from os.path import exists
 
 import db
 import update
@@ -26,9 +28,13 @@ repo = "RunDavidMC/HandyFaucet"
 
 upd = update.check(repo, v)
 
-if options.config_version != conf_version:
+if options.conf_version != conf_version:
     print("Your config.py is outdated.\nPlease make a copy of your config.py, then copy example.config.py over it and edit it.")
     exit()
+
+if exists("uuid") == False:
+    with open("uuid", "w") as f:
+        f.write(str(uuid.uuid1()))
 
 ### DECLARE VARIABLES ###
 
@@ -42,7 +48,9 @@ webhooks = webhooks()
 cookies = {"namebase-main": info.nb_cookie}
 nb_endpoint = "https://www.namebase.io/"
 
-### ----------------- ###
+uuid = open("uuid", "r").read()
+
+### DECLARE VARIABLES ###
 
 cnx = sqlite3.connect('main.db', check_same_thread=False)
 cxt = cnx.cursor()
@@ -66,7 +74,7 @@ app.url_map.strict_slashes = False
 app.secret_key = encryption.session_key
 
 def rt(file, **kwargs):
-    return render_template(file, faucet_name=info.faucet_name, **kwargs)
+    return render_template(file, faucet_name=info.faucet_name, uuid=uuid, time=int(time.time()), version=v, conf_version=conf_version, **kwargs)
 
 def get_nb_names():
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
