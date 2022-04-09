@@ -10,16 +10,25 @@ import os
 import db
 import update
 
-from config import options, info, encryption, webserver, admin, webhooks
+try:
+    from config import options, info, encryption, webserver, admin, webhooks
+except:
+    print("Could not import config.py.\nPlease make sure it exists and is up to date.")
+    exit()
 
 ### DO NOT CHANGE ###
 
 v = "v0.0.10"
+conf_version = 0.1
 repo = "RunDavidMC/HandyFaucet"
 
 ### DO NOT CHANGE ###
 
 upd = update.check(repo, v)
+
+if options.config_version != conf_version:
+    print("Your config.py is outdated.\nPlease make a copy of your config.py, then copy example.config.py over it and edit it.")
+    exit()
 
 ### DECLARE VARIABLES ###
 
