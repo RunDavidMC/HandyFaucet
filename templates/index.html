@@ -3,7 +3,7 @@
 {% block main %}
 <h1>{{ faucet_name }}</h1>
        
-<div id="maindiv">
+<div class="maindiv">
     <h2>Recieve Domain</h2>
     
     <form method="POST">
@@ -15,5 +15,10 @@
         <br>
         {% endif %}
     </form>
+</div>
+<br>
+<div class="maindiv">
+    <p><b>Names given away: </b>{{ names_given }}</p>
+    <p><b>Names left: </b>{{ names_left }}</p>
 </div>
 {% endblock %}

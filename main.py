@@ -20,7 +20,7 @@ except:
 
 ### DO NOT CHANGE ###
 
-v = "v0.1.4"
+v = "v0.1.5"
 conf_version = 0.2
 repo = "RunDavidMC/HandyFaucet"
 
@@ -141,13 +141,16 @@ def index():
         cxt.execute("DELETE FROM names WHERE name=?", [name])
         cnx.commit()
 
-        if webhooks.notify_name_sent:
-            requests.post(webhooks.name_sent_url, json={"content": webhooks.name_sent_message + " | NAME: " + name, "username": info.faucet_name})
+        if webhooks.notify_faucet_use:
+            requests.post(webhooks.faucet_use_url, json={"content": webhooks.faucet_use_message + " | NAME: " + name, "username": info.faucet_name})
 
         return rt("success.html", title='Success', name=name, email=request.form['email'], connections=info.connections)
 
     else:
-        return rt('index.html', title="Home")
+        names_left = cxt.execute("SELECT * FROM names").fetchall()
+        names_given = cxt.execute("SELECT * FROM claims").fetchall()
+
+        return rt('index.html', title="Home", names_left=len(names_left), names_given=len(names_given))
 
 @app.route("/" + admin.path, methods=['GET', 'POST'])
 def adminPanel():

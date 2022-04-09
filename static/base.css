@@ -16,6 +16,25 @@ h2 {
     font-size: 1.8em;
 }
 
+label, p {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+    overflow: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px
+}
+
 .error {
     color: red;
 }
@@ -57,7 +76,7 @@ h2 {
     transition: 0.25s;
 }
 
-#maindiv {
+.maindiv {
     width: 40%;
     margin: 0 auto;
     border-radius: 5px;
@@ -67,13 +86,13 @@ h2 {
 }
 
 @media screen and (max-width: 1100px) {
-    #maindiv {
+    .maindiv {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 500px) {
-    #maindiv {
+    .maindiv {
         width: 90%;
     }
 }
