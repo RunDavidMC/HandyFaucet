@@ -1,9 +1,9 @@
 class options:
     ### DO NOT CHANGE UNTIL YOU HAVE UPDATED THE CONFIG ###
-    conf_version = 0.1
+    conf_version = 0.2
     ### DO NOT CHANGE UNTIL YOU HAVE UPDATED THE CONFIG ###
     send_anonymous_usage_stats = True
-    webhooks = False # If set to true, configure in the webhooks class.
+    webhooks = True # If set to true, configure in the webhooks class.
     auto_update = True # If set to true, the faucet will automatically update itself when a new version is released.
     lazy_load_domains = False # If set to true, the faucet will load domains from Namebase when the program starts.
     # This may lead to issues if you don't restart the program frequently and you try to load domains into that faucet that
@@ -48,11 +48,11 @@ class webhooks: # Make sure to enable in the options class.
     default_url = "https://discord.com/api/webhooks/000000000000/ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     notify_server_start = False # If set to true, the webhook will be triggered when the server starts.
-    notify_server_start_message = "@RunDavidMC The server has started."
+    server_start_message = "@RunDavidMC The server has started."
     server_start_url = default_url
 
     notify_admin_login = False # It is highly recommended you configure this and set it to true to get notified when an admin logs in.
-    admin_login_message = "@RunDavidMC An admin has logged in."
+    admin_login_message = "@RunDavidMC An admin has logged in." # After the message, it will also send " | LOGIN: [Success/Failure]"
     admin_login_url = default_url
 
     notify_out_of_names = False # If set to true, the faucet will notify you when there are no more names left.

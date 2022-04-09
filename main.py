@@ -20,8 +20,8 @@ except:
 
 ### DO NOT CHANGE ###
 
-v = "v0.1.1"
-conf_version = 0.1
+v = "v0.1.4"
+conf_version = 0.2
 repo = "RunDavidMC/HandyFaucet"
 
 ### DO NOT CHANGE ###
@@ -102,6 +102,9 @@ if options.lazy_load_domains:
 
 print(info.faucet_name + " is now running.")
 
+if webhooks.notify_server_start:
+    requests.post(webhooks.server_start_url, json={"content": webhooks.server_start_message, "username": info.faucet_name})
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -138,6 +141,9 @@ def index():
         cxt.execute("DELETE FROM names WHERE name=?", [name])
         cnx.commit()
 
+        if webhooks.notify_name_sent:
+            requests.post(webhooks.name_sent_url, json={"content": webhooks.name_sent_message + " | NAME: " + name, "username": info.faucet_name})
+
         return rt("success.html", title='Success', name=name, email=request.form['email'], connections=info.connections)
 
     else:
@@ -149,8 +155,12 @@ def adminPanel():
         if 'admin' not in session:
             if request.form['password'] == admin.password:
                 session['admin'] = True
+                if webhooks.notify_admin_login:
+                    requests.post(webhooks.admin_login_url, json={"content": webhooks.admin_login_message + " | LOGIN: SUCCESS", "username": info.faucet_name})
                 return rt('adminDash.html', title='Admin Panel')
             else:
+                if webhooks.notify_admin_login:
+                    requests.post(webhooks.admin_login_url, json={"content": webhooks.admin_login_message + " | LOGIN: FAILURE", "username": info.faucet_name})
                 return rt('adminLogin.html', title='Admin Login', error="Incorrect password.")
         else:
             if int(request.form['pin']) != int(admin.pin):
