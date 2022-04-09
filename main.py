@@ -18,7 +18,7 @@ except:
 
 ### DO NOT CHANGE ###
 
-v = "v0.0.10"
+v = "v0.1.1"
 conf_version = 0.1
 repo = "RunDavidMC/HandyFaucet"
 
