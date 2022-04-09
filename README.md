@@ -22,3 +22,5 @@ Just run ``python3 main.py`` to start the program, and navigate to your admin pa
 - [ ] Allow managing used IPs and emails from dashboard
 - [ ] Allow managing loaded names from dashboard
 - [ ] Captcha for clamining names
+- [ ] Quiz to claim name
+- [ ] SLDs
