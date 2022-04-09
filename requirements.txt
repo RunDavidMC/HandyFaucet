@@ -1,0 +1,4 @@
+Flask==2.1.1
+GitPython==3.1.27
+requests==2.27.1
+waitress==2.1.1
