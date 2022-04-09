@@ -16,3 +16,9 @@ Make sure you change ``secret``, ``path``, ``password``, and ``pin``.
 
 You're ready to go!
 Just run ``python3 main.py`` to start the program, and navigate to your admin path to load names!
+
+## TODO
+
+- [ ] Allow managing used IPs and emails from dashboard
+- [ ] Allow managing loaded names from dashboard
+- [ ] Captcha for clamining names
